@@ -5,7 +5,8 @@
   "main": "./src/inject.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "dev": "webpack --mode development",
+    "release": "webpack --mode production",
     "watch": "webpack --watch"
   },
   "author": "Ruslan Dolgopol",
