@@ -1,4 +1,5 @@
 import {detectService} from "./utils/utils";
+import {UI} from "./ui.jsx";
 
 try {
     const service = detectService()
@@ -11,6 +12,7 @@ try {
 
             window.addEventListener("subsSubtitlesChanged", (event) => {
                 console.log("subsSubtitlesChanged Doooooooone");
+                UI.renderSettings(service.settingSelector());
             });
         });
         service.init()

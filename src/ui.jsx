@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {SettingsButton} from "./components/SettingsButton";
+import {SettingsButton} from "./components/SettingsButton.jsx";
+import './css/styles.css'
 
 export class UI {
     static renderSettings(settingSelector) {
@@ -9,7 +10,7 @@ export class UI {
         const referenceNode = document.querySelector(settingSelector);
         const parentNode = referenceNode.parentNode;
         const settingNode = document.createElement("div");
-        settingNode.className = "subs-settings";
+        settingNode.className = "subs-settings ytp-button";
         parentNode.insertBefore(settingNode, referenceNode);
 
         ReactDOM.render(<SettingsButton />, document.querySelector(".subs-settings"));

@@ -1,5 +1,13 @@
 .subs-settings {
     width: 36px;
-    height: 36px;
-    background-color: red;
+    max-height: 36px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.subs-settings-container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
 }

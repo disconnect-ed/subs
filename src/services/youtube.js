@@ -4,7 +4,9 @@ export class Youtube {
         this.injectScript()
     }
 
-
+    settingSelector() {
+        return ".ytp-right-controls > .ytp-size-button";
+    }
 
     injection() {
         window.setInterval(() => {
