@@ -1,3 +1,5 @@
+import { parse } from "subtitle";
+
 export class Youtube {
     constructor() {
         this.subCache = {};
@@ -62,7 +64,7 @@ export class Youtube {
             if (subsToggleElement) {
                 if (window.subtitlesEnabled && subsToggleElement.getAttribute("aria-pressed") === "false") {
                     window.subtitlesEnabled = false;
-                    window.dispatchEvent(new CustomEvent("easysubsSubtitlesChanged", {detail: ""}));
+                    window.dispatchEvent(new CustomEvent("subsSubtitlesChanged", {detail: ""}));
                 }
             }
         }, 500);
