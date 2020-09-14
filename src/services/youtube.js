@@ -1,11 +1,42 @@
 export class Youtube {
+    constructor() {
+        this.subCache = {};
+        this.processSubData = this.processSubData.bind(this);
+        window.addEventListener("subs_data", this.processSubData);
+    }
 
     init() {
         this.injectScript()
     }
 
+    async getSubs(language) {
+        if (language === "") return parse("");
+        const videoId = this.getVideoId();
+        const urlObject = new URL(this.subCache[videoId][language])
+        urlObject.searchParams.set("fmt", "vtt")
+        console.log(urlObject)
+        const subUri = urlObject.href
+        console.log(subUri)
+        const resp = await fetch(subUri);
+        const text = await resp.text();
+        return parse(text);
+    }
+
     settingSelector() {
         return ".ytp-right-controls > .ytp-size-button";
+    }
+
+    playerContainerSelector() {
+        return ".html5-video-player";
+    }
+
+    getVideoId() {
+        const regExpression = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = window.location.href.match(regExpression);
+        if (match && match[2].length === 11) {
+            return match[2];
+        }
+        console.error("Can't get youtube video id");
     }
 
     injection() {
@@ -61,5 +92,12 @@ export class Youtube {
         document.head.removeChild(sc);
     }
 
+    processSubData(event) {
+        const urlObject = new URL(event.detail)
+        const lang = urlObject.searchParams.get("tlang") || urlObject.searchParams.get("lang")
+        const videoId = urlObject.searchParams.get("v")
+        this.subCache[videoId] = {}
+        this.subCache[videoId][lang] = urlObject.href
+    }
 
 }

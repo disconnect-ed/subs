@@ -13,6 +13,9 @@ try {
             window.addEventListener("subsSubtitlesChanged", (event) => {
                 console.log("subsSubtitlesChanged Doooooooone");
                 UI.renderSettings(service.settingSelector());
+                service.getSubs(event.detail).then(subs => {
+
+                });
             });
         });
         service.init()
