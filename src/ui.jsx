@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {SettingsButton} from "./components/SettingsButton.jsx";
+import {SettingsButton} from "./components/Settings/SettingsButton.jsx";
 import './css/styles.css'
 
 export class UI {

@@ -14,7 +14,7 @@ try {
                 console.log("subsSubtitlesChanged Doooooooone");
                 UI.renderSettings(service.settingSelector());
                 service.getSubs(event.detail).then(subs => {
-
+                    console.log(subs)
                 });
             });
         });

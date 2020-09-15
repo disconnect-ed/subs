@@ -12,7 +12,7 @@ export class Youtube {
     }
 
     async getSubs(language) {
-        if (language === "") return parse("");
+        if (language === "") return ''
         const videoId = this.getVideoId();
         const urlObject = new URL(this.subCache[videoId][language])
         urlObject.searchParams.set("fmt", "vtt")
