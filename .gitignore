@@ -13,7 +13,6 @@
 
 # IntellijIdea files
 .idea
-dist
 out
 
 # misc
