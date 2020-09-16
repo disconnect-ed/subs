@@ -28,13 +28,13 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/inject')
+        path: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "styles.css",
             chunkFilename: "styles",
-            path: path.resolve(__dirname, 'dist/style')
+            path: path.resolve(__dirname, 'dist')
         }),
     ]
 };

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Logo from '../../img/logo.svg'
-import '../../css/styles.css'
 import {SettingsWindow} from "./SettingsWindow.jsx";
 
 export const SettingsButton = () => {
